@@ -1,1 +1,143 @@
+import random
+import datetime
+
+
+new_pin_values = []
+
+
+
+
+
+
+def add_money(money_in_account):
+    amount_added = int(input("How much money do you want to add into your account: "))
+    money_in_account = money_in_account + amount_added
+    print("You now have", money_in_account,"in your account.")
+
+
+def remove_money(money_in_account):
+    amount_removed = int(input("How much money do you want remove from your account?: "))
+    money_in_account = money_in_account - amount_removed
+    print("You now have", money_in_account,"in your account.")
+
+
+cardNumber = ""
+money_in_account = 0
+not_allowed_chars= ("")
+while True:
+    fstname = input("Enter your first name: ")
+    try:
+        fstname = int(fstname)
+        print("INVALID")
+    except ValueError:
+        break
+
+
+while True:
+    second_name = input("Enter ur second name")
+    try:
+        second_name = int(second_name)
+        print("INVALID")
+    except ValueError:
+        break
+
+
+while True:
+    birthday= input("Enter the your date of birth in the form DD/MM/YYYY: ")
+    bday=birthday.split("/")
+   
+    try:
+        date=int(bday[0])
+        month=int(bday[1])
+        year=int(bday[2])
+        break  
+    except ValueError:
+        print("INVALID: YOU NEED TO ENTER  NUMBERs!")
+
+
+
+
+while True:
+    pin = input("Enter your pin ")
+    try:
+        pin = int(pin)
+        break  
+    except ValueError:
+        print("INVALID: YOU NEED TO ENTER A NUMBER!")
+
+
+pin = str(pin)
+for i in pin:
+    i = int(i) +1
+    i = str(i)
+    new_pin_values.append(i)
+   
+encPIN = "".join(new_pin_values)
+
+
+
+
+
+
+visa_mastercard = input("are you using  visa or mastercard ")
+contactless = input("are you contactless or not ")
+colour = input("choose a colour(options but default is white)")
+
+
+
+
+
+
+def age_calculator(birthdate):
+   today = datetime.date.today()
+   age = (today - birthdate) // datetime.timedelta(days=365.2425)
+   return age
+
+
+
+
+birthdate = datetime.date(year, month, date)
+age = age_calculator(birthdate)
+if age>= 30:
+    print("you cant make a card you are over 30 " )
+else:
+    print("you can make a card you are under 30")
+
+
+intials = fstname[0] + second_name[0]
+
+
+for n in range(0,16):
+    n = random.randint(0,9)
+    cardNumber = cardNumber + str(n)
+
+
+print(intials)
+print(cardNumber)
+print(year+30,"is you expiry date")
+print(visa_mastercard)
+print(contactless)
+print(colour)
+use = input("do u want to use your card: ")
+if use.lower() == "yes":
+    a = input("enter what is your pin: ")
+    if a == pin:
+        print("access denied")
+    else:
+        print("access granted!!")  
+else:
+    print("bai bai")
+
+
+a = input("do you want to add money into account")
+if a.lower() == "yes":
+    add_money(money_in_account)
+else:
+    print("okay")
+
+
+b = input("Do you want to remove money from your account: ")
+if b.lower() == "yes":
+    remove_money(money_in_account)  
+
 
