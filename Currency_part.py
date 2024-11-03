@@ -1,3 +1,19 @@
+def how_to_pay():
+    while True:
+        try:
+            choose=int(input("Enter 1 if you want to pay with Visa. Enter 2 if you want to pay with Mastercard : "))
+            if choose!=1 or choose !=2:
+                raise TypeError
+        except TypeError:
+            print("Please enter only 1 or 2 :")
+        else:
+            if choose==1:
+                print("You chose to pay with Visa")
+            else:
+                print("You chose to pay with Mastercard ")
+        break
+
+        
 def currency_dict():
     currency={
         "USD": 1,
@@ -181,7 +197,7 @@ def choose_currency(chosen_currency,currency,):
     return chosen_currency
 
 
-def exchange(chosen_currency,total_price,currency_dict):
+def currency_exchange(chosen_currency,total_price,currency_dict):
     
     FP = float(total_price)* currency_dict[chosen_currency]
     FP = round(FP,3)

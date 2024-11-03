@@ -79,4 +79,31 @@ def delivery_fee(distance):
     return delivery_price
 
 
-#total_price = total_price + deliver_price
+
+def time_slot():
+    slot={
+        "1) Morning":"between 9:00 to 12:00",
+        "2) Afternoon" :"betwen 12:00 to 4:00",
+        "3) Evening": "between 4:00 to 8:00"
+        }
+    return slot
+
+def choose_time_for_delivery():
+    while True:
+        try:
+            choose=int(input("Plese enter 1/2/3 to choose the a delivery time slot: "))
+            if choose not in range(1,4):
+                raise TypeError
+        except TypeError:
+            print("Please choose from 1/2/3: ")
+        else:
+            if choose==1:
+                print("Your items will be delivery between 9:00 to 12:00")
+            elif choose==2:
+                print("Your items will be delivery between betwen 12:00 to 4:00")
+            else:
+                print("Your items will be delivery between betwen between 4:00 to 8:00")
+        break
+    
+    
+        
